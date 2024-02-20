@@ -1,7 +1,22 @@
+// autonomous custom element (6. feladat)
+// ######################################
+
+// akkor érdemes használni amikor a komponens viselkedése jelentősen eltér egy meglévő elem viselkedésétől
+// vagy elem jellegétől fogva nem kiterjeszthető pl. select
+// mindig a HTMLElement objektumot terjeszti ki
+// alapvetően javascript működteti, de nem zárja ki a progresszív fejlesztést
+// vagy az eredeti tartalmat okosítjuk fel vagy teljes mértékben felülírjuk az elem belső tartalmát
+// ha nincs js nem csinál semmit
+// eredeti tartalom például használható fallback contentként
+
+// minden esetben extends HTMLElement
 class CascadeSelect extends HTMLElement {
     currentCategory;
 
     constructor() {
+        // super hívás itt is kell
+        // this viszont ebben az esetben csak egy tároló szerepét tölti be
+        // minden funkcionalitást nekünk kell kitalálni
         super();
     }
 
@@ -63,7 +78,6 @@ class CascadeSelect extends HTMLElement {
             this.currentCategory.name = "";
         }
 
-
         this.currentCategory = this.querySelector(`select[data-group="${category}"]`);
         this.currentCategory.name = "pets";
 
@@ -71,6 +85,5 @@ class CascadeSelect extends HTMLElement {
     }
 }
 
-customElements.define("cascade-select", CascadeSelect);
-
-console.log(customElements.get('cascade-select'));
+// nincs options objektum
+customElements.define('cascade-select', CascadeSelect);
