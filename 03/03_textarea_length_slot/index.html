@@ -25,6 +25,12 @@
             }
         </style>
         
+        <!-- slot -->
+        <!-- speciális html elem, ami template-be ágyazható -->
+        <!-- két dologra használható: -->
+        <!-- ablak ki a shadow domból -->
+        <!-- rugalmas tartalmú elemek esetén a gyerek elemek helyének definiálása -->
+        <!-- probléma ha ablakként használjuk megtöri az enkapszulációt -->
         <slot name="review"></slot>
         <span><span>0</span> karakter</span>
     </template>
@@ -35,6 +41,7 @@
         </textarea-length>
         <button>Küldés</button>
     </form>
+    
     <script src="script.js"></script>
 </body>
 </html>

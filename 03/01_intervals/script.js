@@ -1,19 +1,6 @@
-// const template = document.createElement('template');
-
-// template.innerHTML = `
-//     <style>
-//         .error {
-//             border-color: darkred;
-//         }
-//     </style>
-
-//     <input type="date" name="datum[]">
-//     <input type="time" name="tol[]">
-//     <input type="time" name="ig[]">
-//     </template>
-// `
-
 class IntervalInput extends HTMLElement {
+    // static - osztályszintű
+    // # - privát
     /**
      * @type {HTMLTemplateElement}
      */
@@ -22,9 +9,9 @@ class IntervalInput extends HTMLElement {
     constructor() {
         super();
 
-        // const dateInput = document.createElement('input');
-        // dateInput.type = 'date';
-        // data
+        // template tartalma a content adattagon keresztül érhető el
+        // cloneNode lemásolja
+        // true: mély másolat (szinte mindig az kell)
         this.append(IntervalInput.#template.content.cloneNode(true))
 
         const from = this.querySelector('input[name="tol[]"]');
@@ -51,14 +38,12 @@ class IntervalInputGroup extends HTMLElement {
     constructor() {
         super();
 
-        // const dateInput = document.createElement('input');
-        // dateInput.type = 'date';
-        // data
         this.append(IntervalInputGroup.#template.content.cloneNode(true));
-
         this.querySelector('button').addEventListener('click', this.add);
     }
 
+    // eseménykezelőként hozzáadás leköti a this-t
+    // kivéve ha az eseménykezelőként hozzáadott függvény arrow function
     add = () => {
         this.prepend(new IntervalInput())
     }

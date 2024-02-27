@@ -4,20 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <style>
-        .error {
-            padding: 1rem;
-            background-color: darkred;
-            border-radius: 0.5rem;
-        }
-    </style>
 </head>
-<body>
-    <div class="error">
-        asdasdasda
-    </div>
+<body>    
+    <!-- Template speciális elem -->
+    <!-- Nem jeleneik meg a dokumentumba de a memóriában benne van -->
+    <!-- Hatékonyan lemásolható -->
+    <!-- Deklaratív -->
     <template id="interval-template">
+        <!-- Akár stílust is megadhatunk -->
+        <!-- De ez dokumentum szinten érvényes lesz -->
+        <!-- Nincs enkapszulálva, kiszivárog a CSS -> később probléma lehet -->
         <style>
             .error {
                 color: darkred;
@@ -42,5 +38,17 @@
         <button>Küldés</button>
     </form>
     <script src="script.js"></script>
+
+    <div class="error">
+        asdasdasda
+    </div>
+
+    <style>
+        .error {
+            padding: 1rem;
+            background-color: darkred;
+            border-radius: 0.5rem;
+        }
+    </style>
 </body>
 </html>

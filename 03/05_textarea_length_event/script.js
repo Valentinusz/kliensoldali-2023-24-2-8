@@ -25,6 +25,7 @@ class TextareaWithLength extends HTMLElement {
 }
 
 document.querySelector('form').addEventListener('input', () => {
+    // események kijutnak a shadow domból
     console.log("asd");
 })
 
