@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .error {
+            padding: 1rem;
+            background-color: darkred;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="error">
+        asdasdasda
+    </div>
+    <template id="interval-template">
+        <style>
+            .error {
+                color: darkred;
+            }
+        </style>
+
+        <input type="date" name="datum[]">
+        <input type="time" name="tol[]">
+        <input type="time" name="ig[]">
+    </template>
+
+    <template id="interval-group-template">
+        <button type="button">+</button>
+    </template>
+
+    <form action="">
+        <interval-input-group>
+            <interval-input></interval-input>
+            <interval-input></interval-input>
+        </interval-input-group>
+
+        <button>Küldés</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
