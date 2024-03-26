@@ -1,22 +1,23 @@
 import cn from "classnames";
 import Letter from "./Letter";
 
-const Word = () => {
-  const won = false;
+/**
+ *
+ * @param {{word: string, won: boolean, isOver: boolean, tips: string[]}} props
+ * @returns
+ */
+const Word = ({ word, won, isOver, tips }) => {
   return (
     <div id="szo" className={cn({ nyer: won })}>
-      <Letter visible={false} missing={false}>
-        a
-      </Letter>
-      <Letter visible={true} missing={false}>
-        b
-      </Letter>
-      <Letter visible={false} missing={true}>
-        c
-      </Letter>
-      <Letter visible={true} missing={true}>
-        d
-      </Letter>
+      {word.split("").map((letter, index) => (
+        <Letter
+          key={index}
+          visible={isOver || tips.includes(letter)}
+          missing={isOver && !won && !tips.includes(letter)}
+        >
+          {letter}
+        </Letter>
+      ))}
     </div>
   );
 };
